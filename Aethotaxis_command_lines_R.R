@@ -12,7 +12,6 @@ setwd("path/to/your/working/directory")
 # Load required packages
 library(ggplot2)
 
-
       # -------------------------------------------- #
       # Plots from the first VCFtools filtering step #
       # -------------------------------------------- #
@@ -142,7 +141,7 @@ ggplot(pca.x$li, aes(x=Axis1, y=Axis2)) +
   guides(fill = guide_legend(override.aes=list(shape=21)))
 
 
-# Tutorial to controlling legend appearance in ggplot2
+# Tutorial to control legend appearance in ggplot2
 # https://aosmith.rbind.io/2020/07/09/ggplot2-override-aes/
 
 
