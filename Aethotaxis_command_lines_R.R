@@ -2,6 +2,31 @@
 ### This file contains the command lines used in R to run the analysed presented in the paper "Sex differentiation and long-distance gene flow in the Antarctic fish Aethotaxis mitopteryx ###
 ### -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ### 
 
+          ###########
+          ### Map ###
+          ###########
+
+library(ggOceanMaps)
+library(ggspatial)
+library(ggrepel)
+
+Area <- c("East Weddell Sea", "East Antarctic Peninsula")
+Latitude <- c(-72.2965, -63.70074)
+Longitude <- c(-16.84717, -57.03362)
+text_lat <- c(-72, -64.7)
+text_lon <- c(-19, 50)
+
+coord <- data.frame(Area, Latitude, Longitude, text_lat, text_lon)
+my.colours <- c("firebrick1", "dodgerblue2")
+
+basemap(limits = c(-63, -17, -60, -77), rotate = TRUE, base_size=15) +
+  geom_spatial_point(data = coord, aes(x=Longitude, y=Latitude, fill=Area), shape=21, size=5) +
+  scale_fill_manual(values=my.colours) +
+  theme(legend.position="none") +
+  geom_spatial_label(data=coord, aes(x=text_lon, y=text_lat, label=Area), size=5)
+
+
+
 
 	  #################
           ### Filtering ###
@@ -713,27 +738,3 @@ write.table(map, file="modified_map_for_plotting_10.txt", quote=F, sep="\t", dec
 sgtr::radsex_map_circos("modified_map_for_plotting_10.txt", chromosomes_file = "chr_ragtag_radsex.txt", tracks=c("bias","p"), output_file = "map_10.png")
 
 
-
-
-          ###########
-          ### Map ###
-          ###########
-
-library(ggOceanMaps)
-library(ggspatial)
-library(ggrepel)
-
-Area <- c("East Weddell Sea", "East Antarctic Peninsula")
-Latitude <- c(-72.2965, -63.70074)
-Longitude <- c(-16.84717, -57.03362)
-text_lat <- c(-72, -64.7)
-text_lon <- c(-19, 50)
-
-coord <- data.frame(Area, Latitude, Longitude, text_lat, text_lon)
-my.colours <- c("firebrick1", "dodgerblue2")
-
-basemap(limits = c(-63, -17, -60, -77), rotate = TRUE, base_size=15) +
-  geom_spatial_point(data = coord, aes(x=Longitude, y=Latitude, fill=Area), shape=21, size=5) +
-  scale_fill_manual(values=my.colours) +
-  theme(legend.position="none") +
-  geom_spatial_label(data=coord, aes(x=text_lon, y=text_lat, label=Area), size=5)
