@@ -141,11 +141,6 @@ ggplot(pca.x$li, aes(x=Axis1, y=Axis2)) +
   guides(fill = guide_legend(override.aes=list(shape=21)))
 
 
-# Tutorial to control legend appearance in ggplot2
-# https://aosmith.rbind.io/2020/07/09/ggplot2-override-aes/
-
-
-
 
     ### Plot scores per SNP to visualise which scaffold weighs more ###
 
