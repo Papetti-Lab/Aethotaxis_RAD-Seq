@@ -222,13 +222,13 @@ $FINERADSTR/finestructure -m T -x 100000 ${FILE}_chunks.out ${FILE}_chunks.mcmc.
 
 # Between sexes
 IN=/path/to/gstacks/folder
-POPMAP=/path/to/popmap-sex/file # popmap where individuals are divided by sex
+POPMAP=/path/to/popmap-sex/file # popmap where individuals are labelled by sex
 WHITELIST=/path/to/whitelist10.txt
 OUT=/path/to/folder/where/you/want/to/put/the/output
 populations -P $IN -M $POPMAP -O $OUT -W $WHITELIST -p 2 -r 0.80 --max-obs-het 0.75 --min-mac 2 --filter-haplotype-wise --fstats --smooth -t 8
 # Between populations
 IN=/path/to/gstacks/folder
-POPMAP=/path/to/popmap-geo/file # popmap where individuals are divided by geographic origin
+POPMAP=/path/to/popmap-geo/file # popmap where individuals are labelled by geographical origin
 WHITELIST=/path/to/whitelist10.txt
 OUT=/path/to/folder/where/you/want/to/put/the/output
 populations -P $IN -M $POPMAP -O $OUT -W $WHITELIST -p 2 -r 0.80 --max-obs-het 0.75 --min-mac 2 --filter-haplotype-wise --fstats --smooth -t 8
@@ -413,7 +413,7 @@ IN=/path/to/clone_filtered_reads/
 OUT=/path/to/folder/where/you/want/to/put/the/markers_table.tsv
 cd /path/to/output/folder
 
-# popmap-sex.txt is a popmap where individuals are divided by sex
+# popmap-sex.txt is a popmap where individuals are labelled by sex
 
 # Generating a table of marker depths for the entire dataset (paired-end reads are not supported, use only the first read)
 $RADSEX/radsex process --input-dir $IN --output-file $OUT --threads 8
